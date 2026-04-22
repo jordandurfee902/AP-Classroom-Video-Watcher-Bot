@@ -49,6 +49,7 @@ async function monitorVideoProgress() {
 
 function startVideo() {
   // click on the "View" button to open the video, count keeps track of which ones have already been watched.
+  document.querySelector(".StudentAssignments .action-button-cell button").click();
   document.querySelector(".StudentAssignments tbody").children[count].querySelector(".action-button-cell button").click()
   count = count + 1
   // once clicked, start the video monitoring loop
