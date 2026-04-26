@@ -1,6 +1,5 @@
 let playbackSpeed;
 
-// you can change this value to the video you are on to avoid completing repeats
 let videoCount = 0;
 
 
@@ -96,13 +95,23 @@ function closeSettingsMenu() {
     }
 }
 
-function setPlaybackSpeed() {
-    if (openSettingsMenu()) {
-        if (clickSpeedMenu()) {
-            applySpeedSelection();
-        }
-        closeSettingsMenu();
-    }
+function findCurrentVideo() {
+    var parent = document.querySelector('.ResponsiveTabs--items.css-103rzyi')
+    var currentVideo = parent.children.querySelector('.is-selected')
+    var index = Array.from(parent.children).indexOf(currentVideo)
+    return index;
+}
+
+function findCurrentVideo() {
+    var parent = document.querySelector('.ResponsiveTabs--items.css-103rzyi');
+    if (!parent) return -1;
+
+    var currentVideo = parent.querySelector('.is-selected');
+
+    if (!currentVideo) return -1;
+
+    var index = Array.from(parent.children).indexOf(currentVideo);
+    return index;
 }
 
 function clickNextVideo() {
@@ -117,6 +126,8 @@ function clickNextVideo() {
 
 async function main() {
     playback();
+    videoCount = findCurrentVideo();
+    console.log("Current video index: " + videoCount);
 
     while (true) {
         console.log("Checking video status...");
