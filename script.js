@@ -95,12 +95,7 @@ function closeSettingsMenu() {
     }
 }
 
-function findCurrentVideo() {
-    var parent = document.querySelector('.ResponsiveTabs--items.css-103rzyi')
-    var currentVideo = parent.children.querySelector('.is-selected')
-    var index = Array.from(parent.children).indexOf(currentVideo)
-    return index;
-}
+
 
 function findCurrentVideo() {
     var parent = document.querySelector('.ResponsiveTabs--items.css-103rzyi');
